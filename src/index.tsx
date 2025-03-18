@@ -10,7 +10,7 @@ export default definePlugin(() => {
   return {
     name: "Bazzite Changelogs",
     titleView: <div className={staticClasses.Title}>Bazzite Changelogs</div>,
-    content: <div>Content</div>,
+    content: <div>This plugin swaps SteamOS' update changelogs for Bazzite's changelogs.</div>,
     icon: <FaInfoCircle />,
     onDismount() {
       console.log("Unloading Bazzite Changelogs");
