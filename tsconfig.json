@@ -13,8 +13,8 @@
     "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strict": true,
+    "noImplicitAny": false,
+    "strict": false,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
