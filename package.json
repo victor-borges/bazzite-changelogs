@@ -1,7 +1,7 @@
 {
   "name": "bazzite-changelogs",
   "version": "0.0.3",
-  "description": "",
+  "description": "A plugin that swaps SteamOS' update changelogs for Bazzite's changelogs.",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
