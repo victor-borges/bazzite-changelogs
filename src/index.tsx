@@ -1,6 +1,6 @@
 import { staticClasses } from "@decky/ui";
 import { definePlugin } from "@decky/api"
-import { FaShip } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 import { patchPartnerEventStore } from "./PartnerEventStorePatch";
 
 export default definePlugin(() => {
@@ -11,7 +11,7 @@ export default definePlugin(() => {
     name: "Bazzite Changelogs",
     titleView: <div className={staticClasses.Title}>Bazzite Changelogs</div>,
     content: <div>Content</div>,
-    icon: <FaShip />,
+    icon: <FaInfoCircle />,
     onDismount() {
       console.log("Unloading Bazzite Changelogs");
       patch.unpatch();
