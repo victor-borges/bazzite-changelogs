@@ -1,11 +1,11 @@
 import { staticClasses } from "@decky/ui";
 import { definePlugin } from "@decky/api"
 import { FaShip } from "react-icons/fa";
-import { patch } from "./PartnerEventStorePatch";
+import { patchPartnerEventStore } from "./PartnerEventStorePatch";
 
 export default definePlugin(() => {
   console.log("Bazzite Changelogs plugin initializing");
-  patch();
+  const patch = patchPartnerEventStore();
 
   return {
     name: "Bazzite Changelogs",
@@ -13,7 +13,8 @@ export default definePlugin(() => {
     content: <div>Content</div>,
     icon: <FaShip />,
     onDismount() {
-      console.log("Unloading Bazzite Changelogs")
+      console.log("Unloading Bazzite Changelogs");
+      patch.unpatch();
     },
   };
 });
