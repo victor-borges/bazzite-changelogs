@@ -30,7 +30,7 @@ const SteamID = findModuleExport(
 
 const steamClanSteamID = "103582791470414830";
 const steamClanID = "40893422";
-const githubLatestReleaseURI = "https://api.github.com/repos/ublue-os/bazzite/releases/latest"
+const githubReleasesURI = "https://api.github.com/repos/ublue-os/bazzite/releases"
 const steamOSAppId = 1675200;
 
 const mutex = new Mutex();
@@ -78,13 +78,30 @@ export function patchPartnerEventStore() {
         if (release)
           return;
 
-        const response = await fetch(githubLatestReleaseURI);
+        const response = await fetch(githubReleasesURI);
         
         if (!response.ok)
-          return ret;
+          return;
 
-        release = await response.json();
+        const releases: Array<any> = await response.json();
+
+        if (releases.length == 0) {
+          return;
+        }
+
+        releases.sort((a, b) => (new Date(b.created_at)).getTime() - (new Date(a.created_at)).getTime());
+
+        if (c?.require_tags && c?.require_tags?.includes("stablechannel")) {
+          release = releases.find(r => !r.prerelease);
+        } else if (c?.require_tags && c?.require_tags?.includes("betachannel")) {
+          release = releases.find(r => r.prerelease);
+        } else {
+          release = releases.at(0)
+        }
       });
+      
+      if (!release)
+        return ret;
 
       const releaseCreatedAt = Math.floor((new Date(release.created_at)).getTime() / 1000);
 

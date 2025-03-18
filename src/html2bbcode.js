@@ -823,6 +823,7 @@
       'tr': { section: 'tr', newline: 1 },
       'th': { section: 'td', newline: 1 },
       'td': { section: 'td', newline: 1 },
+      'pre': { newline: 0  },
       'div': { newline: 0 },
       // ignore tags
       '!doctype': { ignore: true },
@@ -831,7 +832,6 @@
       'script': { ignore: true },
       'meta': { ignore: true },
       'link': { ignore: true },
-      'pre': { ignore: true  },
     };
   
     BBCode.prototype.open = function (section, attr, data) {
