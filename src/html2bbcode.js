@@ -804,7 +804,7 @@
       'ol': { section: 'ol' },  // may need to treat as 'list'
       'li': { section: 'li', newline: 1 },
       'blockquote': { section: 'quote' },
-      'code': { section: 'code' },
+      'code': { section: 'b' },
       'font': { extend: ['color', 'face', 'size'] },
       'span': { extend: ['color', 'face', 'size'] },
       'color': { section: 'color', attr: 'color' },
@@ -823,7 +823,7 @@
       'tr': { section: 'tr', newline: 1 },
       'th': { section: 'td', newline: 1 },
       'td': { section: 'td', newline: 1 },
-      'pre': { newline: 0  },
+      'pre': { section: 'code', newline: 1 },
       'div': { newline: 0 },
       // ignore tags
       '!doctype': { ignore: true },
