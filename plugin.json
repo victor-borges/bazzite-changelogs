@@ -1,0 +1,11 @@
+{
+  "name": "Bazzite Changelogs",
+  "author": "Victor Borges",
+  "flags": ["debug", "_root"],
+  "api_version": 1,
+  "publish": {
+    "tags": ["template", "root"],
+    "description": "Get Bazzite changelogs on system update announcements.",
+    "image": "https://opengraph.githubassets.com/1/SteamDeckHomebrew/PluginLoader"
+  }
+}
